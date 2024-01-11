@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-"""0-lockboxes"""
+"""
+0-lockboxes
+"""
 
 
-def canUnlockAll(boxes: list[list[int]]) -> bool:
+def canUnlockAll(boxes):
     """
     You have n number of locked boxes in front of you.
     Each box is numbered sequentially from 0 to n - 1 and
@@ -15,7 +17,7 @@ def canUnlockAll(boxes: list[list[int]]) -> bool:
 
     Return True if all boxes can be opened, else return False
     """
-    keys: list[int] = [0, ]
+    keys = [0, ]
 
     for box in range(len(boxes)):
         if box not in keys:
