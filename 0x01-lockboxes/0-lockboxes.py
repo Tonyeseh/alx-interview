@@ -18,9 +18,19 @@ def canUnlockAll(boxes):
     Return True if all boxes can be opened, else return False
     """
     keys = [0, ]
+    box_state = [True] * len(boxes)
 
-    for box in range(len(boxes)):
-        if box not in keys:
-            return False
-        keys += boxes[box]
+    for key in keys:
+        try:
+            found_keys = boxes[key]
+            box_state[key] = False
+        except Exception as e:
+            pass
+
+        for new_key in found_keys:
+            if new_key not in keys:
+                keys.append(new_key)
+
+    if any(box_state):
+        return False
     return True
