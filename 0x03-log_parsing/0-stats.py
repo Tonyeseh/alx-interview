@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
             except ValueError:
                 continue
-            print_info(data, file_size)
+        print_info(data, file_size)
     except KeyboardInterrupt:
         print_info(data, file_size)
         raise
