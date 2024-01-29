@@ -25,15 +25,15 @@ if __name__ == '__main__':
 
             try:
                 count += 1
-                code = int(line_lst[-2])
                 size = int(line_lst[-1])
+                file_size += size
+                code = int(line_lst[-2])
 
                 if code in status_codes:
                     if code in data.keys():
                         data[code] += 1
                     else:
                         data[code] = 1
-                    file_size += size
 
                 if count == 10:
                     count = 0
@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
             except ValueError:
                 continue
-
+        print_info(data, file_size)
     except KeyboardInterrupt:
         print_info(data, file_size)
         raise
