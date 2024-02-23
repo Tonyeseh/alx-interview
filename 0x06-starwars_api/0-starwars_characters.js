@@ -5,7 +5,7 @@ const argv = process.argv;
 
 const route = 'https://swapi-api.alx-tools.com/api/films/';
 
-resp = request(`${route}${argv[2]}`, function (error, response, body) {
+request(`${route}${argv[2]}`, function (error, response, body) {
   if (!error) {
     const data = JSON.parse(body);
     const characters = data.characters;
@@ -13,7 +13,7 @@ resp = request(`${route}${argv[2]}`, function (error, response, body) {
   }
 });
 
-function printCharacterName(characters, idx) {
+function printCharacterName (characters, idx) {
   request.get(characters[idx], function (error, response, body) {
     if (!error) {
       console.log(JSON.parse(body).name);
